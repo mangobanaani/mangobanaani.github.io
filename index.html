@@ -1,39 +1,92 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pekka's Creative Lab</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'JetBrains Mono', monospace;
-      background: #0f0f0f;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #00ff99;
-    }
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-    .project {
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <h1> Hi, I'm Pekka</h1>
-  <p>Creative coder, algorithm explorer, taxi driver </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="Pekka — Creative coder, algorithm explorer, taxi driver. Projects and experiments." />
+    <title>Pekka — Creative Lab</title>
 
-  <div class="project">
-    <h2> Contact</h2>
-    <p>Find me on <a href="https://github.com/mangobanaani">GitHub</a> or drop a message via carrier pigeon 🕊️</p>
-  </div>
-</body>
-</html>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body data-username="mangobanaani">
+    <div class="bg">
+      <div class="gradient gradient-1"></div>
+      <div class="gradient gradient-2"></div>
+      <div class="noise"></div>
+    </div>
+
+    <header class="container">
+      <nav class="nav glass">
+        <a class="brand" href="#">Pekka</a>
+        <div class="nav-right">
+          <a class="nav-link" href="https://github.com/mangobanaani" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </nav>
+
+      <section class="hero glass">
+        <div class="hero-left">
+          <img id="avatar" alt="Avatar" class="avatar" width="128" height="128" />
+        </div>
+        <div class="hero-right">
+          <h1 id="name">Hi, I'm Pekka</h1>
+          <p id="bio" class="muted">Creative coder, algorithm explorer, taxi driver.</p>
+          <div class="stats">
+            <span id="statRepos" class="stat">—</span>
+            <span id="statFollowers" class="stat">—</span>
+            <span id="statFollowing" class="stat">—</span>
+            <span id="statLocation" class="stat optional">—</span>
+          </div>
+          <div class="actions">
+            <a id="githubLink" class="button primary" target="_blank" rel="noopener">Open GitHub</a>
+            <a class="button" href="mailto:hello@example.com">Say hi</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="container">
+      <section class="controls glass">
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.35-4.35m1.35-4.65a7 7 0 11-14 0 7 7 0 0114 0z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Search repositories..." autocomplete="off" />
+        </div>
+        <div class="filters">
+          <div id="languageChips" class="chips"></div>
+          <label class="toggle">
+            <input id="toggleForks" type="checkbox" />
+            <span>Include forks</span>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <div id="repoGrid" class="grid">
+          <!-- Cards injected by JS -->
+        </div>
+        <div id="emptyState" class="empty muted" hidden>
+          Nothing to show. Try a different search or include forks.
+        </div>
+        <div id="errorState" class="error glass" hidden>
+          Hm, the GitHub API rate limit might have been reached. Please refresh later.
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <div class="glass foot-inner">
+        <span>© <span id="year"></span> Pekka</span>
+        <a href="https://github.com/mangobanaani/mangobanaani.github.io" target="_blank" rel="noopener">View this site on GitHub</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/app.js" defer></script>
+  </body>
+  </html>
