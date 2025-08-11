@@ -120,8 +120,13 @@
       statReposEl.textContent = `${num(u.public_repos)} repos`;
       statFollowersEl.textContent = `${num(u.followers)} followers`;
       statFollowingEl.textContent = `${num(u.following)} following`;
-      statLocationEl.textContent = u.location ? u.location : '';
-      if (!u.location) statLocationEl.classList.add('optional');
+      
+      // Add Philippines alongside GitHub location
+      const locations = [];
+      if (u.location) locations.push(u.location);
+      locations.push('Philippines');
+      statLocationEl.textContent = locations.join(' • ');
+      
       githubLink.href = u.html_url;
     } catch (e) {
       // profile is optional; show minimal fallback
