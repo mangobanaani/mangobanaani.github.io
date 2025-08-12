@@ -51,7 +51,7 @@
   }
 
   function repoCard(r){
-    const href = r.homepage && r.homepage.startsWith('http') ? r.homepage : r.html_url;
+    const href = r.html_url; // Always link to GitHub repo
     const lang = r.language ? `<span class="lang"><span class="dot" style="background:${langColor(r.language)}"></span>${r.language}</span>` : '';
     const star = r.stargazers_count > 0 ? `<span class="badge">★ ${num(r.stargazers_count)}</span>` : '';
     const fork = r.forks_count > 0 ? `<span class="badge">⑂ ${num(r.forks_count)}</span>` : '';
