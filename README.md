@@ -22,3 +22,5 @@ Open `index.html` directly or serve the folder with any static server.
 ## Deploy
 This repository is set up as a user site: `mangobanaani.github.io`. Pushing to `main` publishes automatically via GitHub Pages.
 # Deploy trigger Tue Aug 12 01:05:15 EEST 2025
+
+
